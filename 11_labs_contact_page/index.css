@@ -1,6 +1,6 @@
 body {
     font-family: "Roboto", sans-serif;
-    background: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
     color: rgb(0, 0, 0);
     padding: 0;
     margin: 0;
@@ -16,13 +16,22 @@ body {
     background-color: black;
     color: white;
     flex: 1;
-
+    padding: 5%;
 }
 
 .right_container{
     background-color: white;
     color: black;
     flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_container{
+    width: 80%;
+    max-width: 600px;
 }
 
 .testimonial_row{
@@ -43,4 +52,72 @@ body {
     color: #9a9a9a;
     font-size: 16px;
     line-height: 1;
+}
+
+.heading{
+    margin-bottom: 30px;
+}
+
+.right_heading{
+    margin-bottom: 30px;
+    color: #9a9a9a;
+    margin: 0px;
+    padding: 0;
+    font-size: small;
+}
+
+.right_heading h1{
+    font-weight: 400;
+    font-size: 28px;
+    color: black;
+    margin: 5px 0px;
+    padding: 0px;
+}
+
+.input_container{
+    font-size: 14px;
+    padding: 5px 0px;
+    font-weight: 500;
+}
+
+.input_container p{
+    margin: 0;
+    padding:0;
+}
+.input_container input{
+    width: 100%;
+    height: 32px;
+
+    border-style: solid;
+    border-radius: 8px;
+    border-width: 0.25px;
+    border-color: rgb(175, 175, 175);
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.next_container{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    font-weight:500;
+}
+
+.next_container button{
+    background-color: black;
+    color: white;
+    padding: 5px 20px;
+    border-style: none;
+    border-radius: 50px;
+}
+
+.flow_container{
+    display: flex; gap: 10px;
+}
+
+.flow_container div{
+    background-color: black;
+    width: 65px; 
+    height: 5px; 
+    border-radius: 50px;
 }

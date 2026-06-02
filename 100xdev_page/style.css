@@ -23,3 +23,20 @@ body {
     justify-content: space-evenly;
     gap: 20px;
 }
+
+.hero_section_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero_section_left_container{
+    flex: 2;
+}
+
+.hero_section_right_container{
+    flex: 1;
+}
+
+.hero_section_right_container img{
+    width: 540px;
+}

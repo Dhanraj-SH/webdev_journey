@@ -1,3 +1,5 @@
+//promise version of fs.readfile
+
 const fs = require("fs");
 
 function fsReadFilePromise(filepath, encoding){
@@ -21,6 +23,7 @@ fsReadFilePromise("a.txt", "utf-8")
         console.log("Error while reading the file")
     });
 
+// promise version of settimeout
 
 function setTimeoutPromisified(delay){
     return new Promise((resolve)=>{
@@ -33,4 +36,6 @@ function setTimeoutPromisified(delay){
 setTimeoutPromisified(5000)
     .then(() => {
         console.log("5 seconds passed")
+    }).finally(() =>{
+        console.log("Got an overview on the concpet of promise")
     });

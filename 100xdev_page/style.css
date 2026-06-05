@@ -40,3 +40,39 @@ body {
 .hero_section_right_container img{
     width: 540px;
 }
+
+.tags_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tags{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px
+}
+
+.tag_icon{
+
+}
+
+.about_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.left_about{
+    display: flex;
+    flex: 2;
+}
+
+.right_about{
+    display: flex;
+    flex: 1;
+}
+
+.pros{
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+}

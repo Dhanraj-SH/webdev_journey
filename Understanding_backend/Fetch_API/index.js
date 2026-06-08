@@ -2,13 +2,15 @@ const express = require("express");
 
 const app = express();
 
+app.use(express.json);
+
 app.get("/", function(req, res){
     res.sendFile("C:/Users/dhanr/OneDrive/Documents/Development/Understanding_backend/Fetch_API/index.html");
 });
 
-app.get("/sum", function (req, res){
-    const a = parseInt(req.query.a);
-    const b = parseInt(req.query.b);
+app.get("/sum/:a/:b", function (req, res){
+    const a = parseInt(req.params.a);
+    const b = parseInt(req.params.b);
 
     const sum = a + b;
 
@@ -18,7 +20,19 @@ app.get("/sum", function (req, res){
 
 });
 
-app.get("/sub", function(req, res){
+// post method and body parameter
+// app.post("/sum", function (req, res){
+//     const a = parseInt(req.body.a);
+//     const b = parseInt(req.body.b);
+
+//     const sum = a + b;
+
+//     res.json({
+//         ans: sum
+//     })
+// });
+
+app.get("/sub/:a/:b", function(req, res){
     const a = parseInt(req.params.a);
     const b = parseInt(req.params.b);
 
@@ -30,26 +44,26 @@ app.get("/sub", function(req, res){
 
 });
 
-app.get("/mul", function(req, res){
+app.get("/mul/:a/:b", function(req, res){
     const a = parseInt(req.params.a);
     const b = parseInt(req.params.b);
 
     const mul = a * b;
 
     res.json({
-        ans: sub
+        ans: mul
     })
     
 });
 
-app.get("/div", function(req, res){
+app.get("/div/:a/:b", function(req, res){
     const a = parseInt(req.params.a);
     const b = parseInt(req.params.b);
 
     const div = a / b;
 
     res.json({
-        ans: sub
+        ans: div
     })
     
 });

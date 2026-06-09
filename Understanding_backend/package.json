@@ -6,7 +6,8 @@
   "scripts": {
     "basic_http": "node Basic_HTTP_server/index.js",
     "fetch_api": "node Fetch_API/index.js",
-    "middleware": "node Middlewares/index.js"
+    "middleware": "node Middlewares/index.js",
+    "axios": "node Axios_vs_Fetch/index.js"
   },
   "keywords": [],
   "author": "",

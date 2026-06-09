@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "basic_http": "node Basic_HTTP_server/index.js",
-    "fetch_api": "node Fetch_API/index.js"
+    "fetch_api": "node Fetch_API/index.js",
+    "middleware": "node Middleware/index.js"
   },
   "keywords": [],
   "author": "",

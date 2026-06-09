@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        async function add(){
+
+            const a = document.getElementById("first_no").value;
+            const b = document.getElementById("second_no").value;
+    
+            const res = await fetch("http://localhost:3000/add/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    a: a,
+                    b: b
+                })
+            });
+            const json = await res.json();
+    
+            document.getElementById("response").innerHTML = json.ans;
+            
+        }
+
+        async function sub(){
+            const first_no = document.getElementById("first_no").value;
+            const second_no = document.getElementById("second_no").value;
+            
+            const res = await fetch("http://localhost:3000/sub/",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    a: first_no,
+                    b: second_no
+                })
+            });
+
+            const json = await res.json();
+
+            document.getElementById("response").innerHTML = json.ans;
+        
+        }
+
+        async function mul(){
+            const first_no = document.getElementById("first_no").value;
+            const second_no = document.getElementById("second_no").value;
+            
+            const res = await fetch("http://localhost:3000/mul/",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    a: first_no,
+                    b: second_no
+                })
+            });
+
+            const json = await res.json();
+
+            document.getElementById("response").innerHTML = json.ans;
+        
+        }
+
+        async function div(){
+            const first_no = document.getElementById("first_no").value;
+            const second_no = document.getElementById("second_no").value;
+            
+            const res = await fetch("http://localhost:3000/div/",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    a: first_no,
+                    b: second_no
+                })
+            });
+
+            const json = await res.json();
+
+            document.getElementById("response").innerHTML = json.ans;
+        
+        }
+
+    </script>
+</head>
+<body>
+
+    <input type="text" placeholder="First number" id="first_no" />
+    <input type="text" placeholder="Second number" id="second_no" />
+
+    <button onclick="add()">ADD</button>
+    <button onclick="sub()">SUBTRACT</button>
+    <button onclick="mul()">MULTIPLY</button>
+    <button onclick="div()">DIVISON</button>
+
+    <div id="response"></div>
+
+</body>
+</html>

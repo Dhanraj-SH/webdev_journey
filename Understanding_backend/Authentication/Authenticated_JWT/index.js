@@ -1,5 +1,6 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
+const{authMiddleware} = require("./middleware");
 
 const app = express();
 
@@ -54,6 +55,31 @@ app.post("/signin", function(req, res){
 
 });
 
+app.post("/notes", authMiddleware, (req, res) => {
+    
+    const note = req.body.note;
+    const username = req.username;
+    
+    notes.push({note, username});
+    
+    res.json({
+        message: "Done!!!"
+    });
+});
+
+app.get("/notes", authMiddleware, (req, res) => {
+    
+    const username = req.username;
+    
+    const userNotes = notes.filter(
+        note => note.username === username
+    );
+    
+    res.json({
+        notes: userNotes
+    });
+});
+
 app.get("/", (req, res) => {
     res.sendFile("C:/Users/dhanr/OneDrive/Documents/Development/Understanding_backend/Authentication/Authenticated_JWT/frontend/index.html");
 });
@@ -68,56 +94,6 @@ app.get("/signup", (req, res) => {
 
 app.get("/signin", (req, res) => {
     res.sendFile("C:/Users/dhanr/OneDrive/Documents/Development/Understanding_backend/Authentication/Authenticated_JWT/frontend/signin.html");
-});
-
-function getUsername(req, res) {
-    const token = req.headers.token;
-
-    if (!token) {
-        res.status(403).json({
-            message: "You are not logged in"
-        });
-        return;
-    }
-
-    const decoded = jwt.verify(token, "token");
-
-    if (!decoded.username) {
-        res.status(403).json({
-            message: "malformed token"
-        });
-        return;
-    }
-
-    return decoded.username;
-}
-
-app.post("/notes", (req, res) => {
-
-    const username = getUsername(req, res);
-    if (!username) return;
-
-    const note = req.body.note;
-
-    notes.push({note, username});
-
-    res.json({
-        message: "Done!!!"
-    });
-});
-
-app.get("/notes", (req, res) => {
-
-    const username = getUsername(req, res);
-    if (!username) return;
-
-    const userNotes = notes.filter(
-        note => note.username === username
-    );
-
-    res.json({
-        notes: userNotes
-    });
 });
 
 app.listen(3000);

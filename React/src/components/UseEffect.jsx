@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 //timer example
 export function Timer() {
@@ -24,9 +25,8 @@ export function UserList(){
     useEffect(() => {
         const fetchData = async () => {
             try{
-                const response = await fetch("https://jsonplaceholder.typicode.com/users");
-                const data = await response.json();
-                setUsers(data);
+               const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+                setUsers(response.data);
             }catch(error){
                 console.error('Error fetching data', error);
             }finally{
